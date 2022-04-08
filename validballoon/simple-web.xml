@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Containers>
+  <TemplateURL>https://raw.githubusercontent.com/validballoon/docker-templates/master/validballoon/simple-web.xml</TemplateURL>
+  <Beta>True</Beta>
+  <Category>Other: Status:Beta</Category>
+  <Name>validballoon-simple-web</Name>
+  <Description>
+    [b]Description[/b][br]
+    Simple-web is a test Docker to check how to Add your own repository in unRaid.[br][br]
+    [b]Configuration[/b][br]
+    [b]/config[/b] This is where the application will store its configuration files, database and logs etc.[br]
+    [b]Documentation[/b][br]
+  </Description>
+  <Overview>
+    Simple-web is a test Docker to check how to Add your own repository in unRaid.
+  </Overview>
+  <Registry>https://registry.hub.docker.com/r/validballoon/simple-web/</Registry>
+  <GitHub>https://github.com/validballoon/arch-simple-web</GitHub>
+  <Repository>validballoon/simple-web</Repository>
+  <BindTime>true</BindTime>
+  <Privileged>false</Privileged>
+    <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>80</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+    </Networking>
+  <Environment>
+    <Variable>
+      <Name>UMASK</Name>
+      <Value>000</Value>
+    </Variable>
+    <Variable>
+      <Name>PUID</Name>
+      <Value>99</Value>
+    </Variable>
+    <Variable>
+      <Name>PGID</Name>
+      <Value>100</Value>
+    </Variable>
+  </Environment>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/config</HostDir>
+      <ContainerDir>/config</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <WebUI>http://[IP]:[PORT:80]/</WebUI>
+  <Icon>https://raw.githubusercontent.com/validballoon/docker-templates/master/validballoon/images/simple-web-icon.png</Icon>
+  <ExtraParams></ExtraParams>
+</Containers>
